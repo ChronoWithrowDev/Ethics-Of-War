@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+html, body, #root { height: 100%; margin: 0; overflow: hidden; background: #000; }
+body { -webkit-font-smoothing: antialiased; user-select: none; }
+canvas { image-rendering: auto; }
+
+@keyframes twinkle { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
+@keyframes pulseGlow { 0%, 100% { opacity: 0.55; transform: scale(1); } 50% { opacity: 1; transform: scale(1.08); } }
+
+/* subtle scanline on menus */
+.scan::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 3px); }
+
+input[type="range"] { height: 4px; }
+
+.font-tech { font-family: 'Orbitron', 'Segoe UI', system-ui, sans-serif; }
+.font-hud { font-family: 'Rajdhani', 'Segoe UI', system-ui, sans-serif; }
+
+/* ===== Ethics of War — shared tech UI (Quake II / Doom 3 flavour) ===== */
+.ui-clip { clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px)); }
+.ui-clip-sm { clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 9px 100%, 0 calc(100% - 9px)); }
+.ui-panel { position: relative; background: rgba(5, 9, 15, 0.88); border: 1px solid rgba(34, 211, 238, 0.28); box-shadow: 0 0 40px rgba(34, 211, 238, 0.12), inset 0 0 60px rgba(0, 0, 0, 0.6); }
+.ui-panel::before { content: ""; position: absolute; left: 0; top: 0; width: 60px; height: 2px; background: linear-gradient(90deg, #22d3ee, transparent); }
+.ui-panel::after { content: ""; position: absolute; right: 0; bottom: 0; width: 60px; height: 2px; background: linear-gradient(270deg, #ef4444, transparent); }
+.ui-hud { background: rgba(5, 9, 15, 0.62); border: 1px solid rgba(34, 211, 238, 0.22); backdrop-filter: blur(2px); }
+.ui-btn { font-family: 'Orbitron', system-ui, sans-serif; text-transform: uppercase; letter-spacing: 0.25em; border: 1px solid rgba(255,255,255,0.22); padding: 0.6rem 1.1rem; transition: all 140ms ease; background: rgba(0,0,0,0.5); color: rgba(255,255,255,0.85); }
+.ui-btn:hover { transform: translateX(3px); background: rgba(255,255,255,0.12); }
+.ui-btn:disabled { opacity: 0.4; transform: none; }
+.ui-btn-cyan { border-color: rgba(103, 232, 249, 0.8); background: rgba(34, 211, 238, 0.14); color: #ecfeff; }
+.ui-btn-cyan:hover { background: rgba(103, 232, 249, 0.34); box-shadow: 0 0 18px rgba(34, 211, 238, 0.35); }
+.ui-btn-red { border-color: rgba(248, 113, 113, 0.75); background: rgba(239, 68, 68, 0.12); color: #fee2e2; }
+.ui-btn-red:hover { background: rgba(248, 113, 113, 0.32); }
+.ui-btn-amber { border-color: rgba(251, 191, 36, 0.8); background: rgba(245, 158, 11, 0.14); color: #fef3c7; }
+.ui-btn-amber:hover { background: rgba(251, 191, 36, 0.32); box-shadow: 0 0 18px rgba(245, 158, 11, 0.3); }
+.ui-label { font-family: 'Orbitron', system-ui, sans-serif; text-transform: uppercase; letter-spacing: 0.32em; font-size: 10px; color: rgba(165, 243, 252, 0.7); }
+.ui-hazard { background: repeating-linear-gradient(45deg, #e8b23a 0 14px, #0a0d12 14px 28px); }
+.ui-bar { height: 6px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.08); overflow: hidden; }
+.ui-bar > div { height: 100%; }
+.ui-grid { background-image: linear-gradient(rgba(34,211,238,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,0.06) 1px, transparent 1px); background-size: 28px 28px; }
+input[type="range"].ui-range { accent-color: #22d3ee; }
+select.ui-sel, input.ui-in { background: rgba(0,0,0,0.6); border: 1px solid rgba(34,211,238,0.3); color: #ecfeff; padding: 0.45rem 0.7rem; font-family: 'Rajdhani', system-ui, sans-serif; font-size: 15px; outline: none; width: 100%; }
+select.ui-sel:focus, input.ui-in:focus { border-color: rgba(103, 232, 249, 0.85); }
